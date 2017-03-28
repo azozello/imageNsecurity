@@ -50,15 +50,6 @@ public class ImageService {
     }
 
     /**
-     * Builds from Image class`s object URL to use on frontend
-     * @param image
-     * @return URL
-     */
-    public String buildURL(Image image){
-        return URL+image.getFolder()+"/"+image.getName()+"."+image.getType();
-    }
-
-    /**
      *Returns all photos from folder => from some user
      */
     public ArrayList<Image> getImagesByFolder(String folder){
@@ -67,6 +58,26 @@ public class ImageService {
             if (i.getFolder().equals(folder)) result.add(i);
         }
         return result;
+    }
+
+    /**
+     * Builds from Image class`s object URL to use on frontend
+     * @param image
+     * @return URL
+     */
+    public String buildURL(Image image){
+        if (image.getFolder()==null || image.getFolder().equals("")){
+            return URL+image.getName();
+        } else {
+            return URL+image.getFolder()+"/"+image.getName();
+        }
+    }
+
+    public Image getImageByName(String name){
+        for (Image i : allImages){
+            if (i.getName().equals(name)) return i;
+        }
+        return null;
     }
 
     public void addImage(Image image){

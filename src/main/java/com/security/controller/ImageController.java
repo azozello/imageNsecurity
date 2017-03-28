@@ -20,8 +20,8 @@ public class ImageController {
         this.imageService = imageService;
     }
 
-    @RequestMapping(value = "/allImagesNames")
-    public ArrayList<String> getImage(){
+    @RequestMapping(value = "/allImagesNames/{folder}")
+    public ArrayList<String> getImage(@PathVariable String folder){
         return new ArrayList<>();
     }
 

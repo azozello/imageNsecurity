@@ -87,4 +87,8 @@ public class ImageService {
     public ArrayList<Image> getAllImages() {
         return allImages;
     }
+
+    public void deleteImage(Image image){
+
+    }
 }

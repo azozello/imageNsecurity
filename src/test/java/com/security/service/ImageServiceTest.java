@@ -10,6 +10,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 import java.util.ArrayList;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
@@ -44,5 +45,30 @@ public class ImageServiceTest {
         for (Image i : testList){
             assertEquals(i.getFolder(), folder);
         }
+    }
+
+    @Test
+    public void addImage(){
+        Image image = new Image("test","test","test");
+        imageService.addImage(image);
+        assertTrue(imageService.getAllImages().contains(image));
+    }
+
+    @Test
+    public void deleteImage(){
+        ArrayList<Image> save = imageService.loadImageNames();
+        Image image = save.get(0);
+        imageService.deleteImage(image);
+        assertTrue(imageService.loadImageNames().contains(image));
+        imageService.saveImageNames(save);
+    }
+
+    @Test
+    public void getImageByName(){
+        Image had = imageService.getAllImages().get(0);
+        Image loaded = imageService.getImageByName(had.getName());
+        assertEquals(had.getName(),loaded.getName());
+        assertEquals(had.getType(),loaded.getType());
+        assertEquals(had.getFolder(),loaded.getFolder());
     }
 }

@@ -1,6 +1,6 @@
 package com.security;
 
-import com.security.model.Image;
+import com.security.model.pojo.Image;
 import com.security.service.ImageService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
@@ -19,6 +19,9 @@ public class TestApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(TestApplication.class, args);
+		for (Image i : allImages){
+			System.out.println(i);
+		}
 	}
 
 	@PostConstruct

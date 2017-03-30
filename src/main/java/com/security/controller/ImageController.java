@@ -1,6 +1,6 @@
 package com.security.controller;
 
-import com.security.model.Image;
+import com.security.model.pojo.Image;
 import com.security.service.ImageService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -22,7 +22,10 @@ public class ImageController {
 
     @RequestMapping(value = "/allImagesNames/{folder}")
     public ArrayList<String> getImage(@PathVariable String folder){
-        return new ArrayList<>();
+        ArrayList<String> test = new ArrayList<>();
+        test.add("Hui");
+        test.add("Pizda");
+        return test;
     }
 
     @RequestMapping(value = "/image/{name}")

@@ -1,6 +1,6 @@
 package com.security.service;
 
-import com.security.model.Image;
+import com.security.model.pojo.Image;
 import org.springframework.stereotype.Service;
 
 import java.io.*;

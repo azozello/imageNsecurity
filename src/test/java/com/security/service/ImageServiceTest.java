@@ -1,6 +1,6 @@
 package com.security.service;
 
-import com.security.model.Image;
+import com.security.model.pojo.Image;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
